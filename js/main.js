@@ -23,14 +23,32 @@
     if (!header) return;
 
     let ticking = false;
+    let lastScrollY = window.scrollY || window.pageYOffset;
+    const directionThreshold = 6;
+    const revealAtTop = 40;
 
     function updateHeader() {
-      const scrollY = window.scrollY || window.pageYOffset;
-      if (scrollY > 30) {
-        header.classList.add('is-scrolled');
-      } else {
-        header.classList.remove('is-scrolled');
+      const scrollY = Math.max(0, window.scrollY || window.pageYOffset);
+      const delta = scrollY - lastScrollY;
+
+      // Conserver le style compact après avoir quitté le haut de page.
+      header.classList.toggle('is-scrolled', scrollY > 30);
+
+      // Toujours rendre le header visible en haut de page.
+      if (scrollY <= revealAtTop) {
+        header.classList.remove('is-hidden');
+      } else if (Math.abs(delta) >= directionThreshold) {
+        // Descente : masquer. Remontée : réafficher.
+        if (delta > 0) {
+          const drawer = document.getElementById('mobile-drawer');
+          const menuOpen = drawer && drawer.classList.contains('is-open');
+          if (!menuOpen) header.classList.add('is-hidden');
+        } else {
+          header.classList.remove('is-hidden');
+        }
       }
+
+      lastScrollY = scrollY;
       ticking = false;
     }
 
@@ -41,7 +59,7 @@
       }
     }, { passive: true });
 
-    // Contrôle initial au chargement
+    // Contrôle initial au chargement.
     updateHeader();
   }
 
