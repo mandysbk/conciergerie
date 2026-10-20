@@ -1,0 +1,152 @@
+/* ==========================================================================
+   SANTONIS — ANIMATIONS & EFFETS DISCRETS
+   Animations CSS pures, légères, fluides et non intrusives.
+   Respecte rigoureusement prefers-reduced-motion.
+   ========================================================================== */
+
+/* ==========================================================================
+   1. KEYFRAMES D'ENTRÉE & D'AMBIANCE
+   ========================================================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroZoom {
+  from {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ==========================================================================
+   2. CLASSES D'APPARITION AU DÉFILEMENT (INTERSECTION OBSERVER)
+   ========================================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s cubic-bezier(0.2, 0.7, 0.2, 1),
+              transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variantes légères d'apparition */
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  transition-delay: var(--delay, 0ms);
+}
+
+.reveal-fade.is-visible {
+  opacity: 1;
+}
+
+/* Animation d'entrée du Hero */
+.hero-content .eyebrow {
+  animation: slideUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.1s both;
+}
+
+.hero-content h1 {
+  animation: slideUp 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.25s both;
+}
+
+.hero-content .lede {
+  animation: slideUp 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.4s both;
+}
+
+.hero-content .buttons-group {
+  animation: slideUp 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.55s both;
+}
+
+.hero-art img {
+  animation: heroZoom 2.2s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Indicateur subtil de défilement */
+.scroll-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  animation: softFloat 3s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   3. TRANSITIONS DOUCES AU SURVOL
+   ========================================================================== */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(36, 62, 55, 0.1);
+}
+
+/* Accordéon animé fluide */
+details[open] summary ~ * {
+  animation: slideUp 0.35s ease;
+}
+
+/* ==========================================================================
+   4. RESPECT STRICT DE PREFERS-REDUCED-MOTION
+   Si l'utilisateur a activé la réduction de mouvement dans son système.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .reveal-fade {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero-art img {
+    transform: none !important;
+  }
+
+  .scroll-cue {
+    animation: none !important;
+  }
+}

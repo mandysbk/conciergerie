@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Devis gratuit — Santonis Conciergerie</title>
+  <meta name="description" content="Contactez Mandy pour votre projet de conciergerie en Charente-Maritime. Demande de devis gratuit pour votre location à Corme-Royal, Saintes, Royan ou Rochefort.">
+  
+  <link rel="icon" href="../images/logo/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  
+  <script src="../js/layout.js" defer></script>
+  <script src="../js/main.js" defer></script>
+</head>
+<body class="interior" data-page="contact" data-dir="pages">
+
+  <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
+
+  <!-- ===== HEADER COMMUN (injecté par layout.js) ===== -->
+  <header id="site-header"></header>
+
+  <!-- ===== CONTENU PRINCIPAL ===== -->
+  <main id="contenu-principal">
+
+    <!-- ===== EN-TÊTE DE SECTION ===== -->
+    <section class="interior-hero">
+      <div class="shell">
+        <div class="section-label">
+          <img class="section-icon" src="../images/icones/repere-mail.svg" alt="" aria-hidden="true" width="24" height="24" style="filter: brightness(1.8);">
+          <p class="eyebrow">Contact & Devis</p>
+        </div>
+        <h1>Parlons de<br><em>votre logement.</em></h1>
+        <p class="lede">Partagez-nous les premières caractéristiques de votre hébergement et vos souhaits d'intendance. Nous étudions votre projet avec attention.</p>
+      </div>
+    </section>
+
+    <!-- ===== SECTION PRINCIPALE : FORMULAIRE & COORDONNÉES ===== -->
+    <section class="section">
+      <div class="shell">
+        <div class="contact-layout">
+          
+          <!-- Colonne de gauche : Coordonnées directes et repères -->
+          <div class="reveal">
+            <h2>Une réponse personnalisée sous 48h</h2>
+            <p>Chaque résidence a ses spécificités. Que votre logement soit déjà en location ou que vous débutiez votre activité, Mandy vous guide pour définir l'accompagnement le plus adapté.</p>
+
+            <div class="contact-info-card" style="margin-top: 30px;">
+              <div class="contact-point">
+                <img class="contact-point-icon" src="../images/icones/repere-pin.svg" alt="" aria-hidden="true" width="40" height="40">
+                <div class="contact-point-text">
+                  <strong>Localisation</strong>
+                  <p>Basée à Corme-Royal (17600), déplacements réguliers vers Saintes, Royan et Rochefort.</p>
+                </div>
+              </div>
+
+              <div class="contact-point">
+                <img class="contact-point-icon" src="../images/icones/repere-phone.svg" alt="" aria-hidden="true" width="40" height="40">
+                <div class="contact-point-text">
+                  <strong>Téléphone</strong>
+                  <p>[TÉLÉPHONE À COMPLÉTER] (Mandy)</p>
+                </div>
+              </div>
+
+              <div class="contact-point">
+                <img class="contact-point-icon" src="../images/icones/repere-mail.svg" alt="" aria-hidden="true" width="40" height="40">
+                <div class="contact-point-text">
+                  <strong>Courrier électronique</strong>
+                  <p>[EMAIL À COMPLÉTER]</p>
+                </div>
+              </div>
+
+              <div class="contact-point">
+                <img class="contact-point-icon" src="../images/icones/repere-calendar.svg" alt="" aria-hidden="true" width="40" height="40">
+                <div class="contact-point-text">
+                  <strong>Disponibilité</strong>
+                  <p>Du lundi au dimanche pour l'accueil de vos hôtes sur rendez-vous.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Encadré engagements devis -->
+            <div class="arrival-box" style="background: var(--sand-light); border: 1px solid var(--line); color: var(--ink); margin-top: 40px; padding: 22px;">
+              <img class="arrival-icon" src="../images/icones/repere-checklist.svg" alt="" aria-hidden="true" width="44" height="44" style="filter: none;">
+              <div class="arrival-content">
+                <h4 style="margin: 0 0 6px; font-size: 19px;">Devis gratuit et sans engagement</h4>
+                <p style="font-size: 14.5px; color: var(--muted); margin: 0;">Nous convenons ensemble d'une proposition claire et transparente, sans frais cachés ni engagement dans la durée.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Colonne de droite : Formulaire interactif -->
+          <div class="contact-form-box reveal">
+            <div class="form-header">
+              <div class="form-header-badge">
+                <img src="../images/icones/repere-mail.svg" alt="" aria-hidden="true" width="20" height="20">
+                <span class="eyebrow">DEMANDE DE DEVIS</span>
+              </div>
+              <h3>Votre projet en quelques lignes</h3>
+              <p>Remplissez ce formulaire, Mandy vous répondra dans les meilleurs délais.</p>
+            </div>
+
+            <!-- Message d'alerte statut -->
+            <div id="form-status-alert" class="form-status-alert" role="status" aria-live="polite"></div>
+
+            <!-- FORMULAIRE DE CONTACT (Action vide pour phase locale) -->
+            <!-- À CONFIGURER lors de la phase de déploiement -->
+            <form id="santonis-contact-form" action="" method="post" novalidate>
+              <div class="form-grid">
+                
+                <!-- Nom complet -->
+                <div class="form-field">
+                  <label class="field-label" for="contact-name">
+                    <img src="../images/icones/repere-person.svg" alt="" aria-hidden="true" width="18" height="18">
+                    Votre nom *
+                  </label>
+                  <input class="form-input" type="text" id="contact-name" name="name" required maxlength="100" placeholder="Ex. Camille Martin" autocomplete="name">
+                </div>
+
+                <!-- Adresse e-mail -->
+                <div class="form-field">
+                  <label class="field-label" for="contact-email">
+                    <img src="../images/icones/repere-mail.svg" alt="" aria-hidden="true" width="18" height="18">
+                    Votre e-mail *
+                  </label>
+                  <input class="form-input" type="email" id="contact-email" name="email" required maxlength="254" placeholder="vous@exemple.fr" autocomplete="email">
+                </div>
+
+                <!-- Numéro de téléphone -->
+                <div class="form-field">
+                  <label class="field-label" for="contact-phone">
+                    <img src="../images/icones/repere-phone.svg" alt="" aria-hidden="true" width="18" height="18">
+                    Téléphone <span class="opt">(facultatif)</span>
+                  </label>
+                  <input class="form-input" type="tel" id="contact-phone" name="phone" maxlength="30" placeholder="06 00 00 00 00" autocomplete="tel">
+                </div>
+
+                <!-- Commune du bien -->
+                <div class="form-field">
+                  <label class="field-label" for="contact-town">
+                    <img src="../images/icones/repere-pin.svg" alt="" aria-hidden="true" width="18" height="18">
+                    Commune du logement *
+                  </label>
+                  <input class="form-input" type="text" id="contact-town" name="town" required maxlength="100" placeholder="Ex. Corme-Royal, Saintes, Royan…" autocomplete="address-level2">
+                </div>
+
+                <!-- Formule souhaitée -->
+                <div class="form-field full">
+                  <label class="field-label" for="contact-service">
+                    <img src="../images/icones/repere-checklist.svg" alt="" aria-hidden="true" width="18" height="18">
+                    Votre besoin principal *
+                  </label>
+                  <select class="form-select" id="contact-service" name="service" required>
+                    <option value="">Sélectionnez une formule</option>
+                    <option value="gestion-complete">La gestion complète (clé en main)</option>
+                    <option value="a-la-carte">Des prestations à la carte</option>
+                    <option value="panier-arrivee">Le panier d’arrivée local</option>
+                    <option value="discussion">Un premier échange conseil</option>
+                  </select>
+                </div>
+
+                <!-- Message descriptif -->
+                <div class="form-field full">
+                  <label class="field-label" for="contact-message">
+                    <img src="../images/icones/repere-chat.svg" alt="" aria-hidden="true" width="18" height="18">
+                    Détails de votre projet *
+                  </label>
+                  <textarea class="form-textarea" id="contact-message" name="message" required maxlength="3000" placeholder="Type de bien (maison, appartement), capacité d'accueil, fréquence des locations, attentes particulières…"></textarea>
+                </div>
+
+                <!-- Consentement RGPD -->
+                <div class="rgpd-consent">
+                  <input type="checkbox" id="consent-rgpd" name="consent_rgpd" required>
+                  <label for="consent-rgpd">
+                    J'autorise Santonis à utiliser mes coordonnées dans le cadre strict du traitement de ma demande de devis. Conformément à la réglementation RGPD, mes données ne seront jamais divulguées ni cédées à des fins commerciales. *
+                  </label>
+                </div>
+
+              </div>
+
+              <p class="fineprint" style="margin-block: 16px;">* Champs obligatoires. En phase locale de démonstration, la validation s'effectue directement dans le navigateur sans transmission de données.</p>
+
+              <button class="btn" type="submit" style="width: 100%;">
+                Envoyer ma demande à Mandy <span>↗</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER COMMUN (injecté par layout.js) ===== -->
+  <footer id="site-footer"></footer>
+
+</body>
+</html>
