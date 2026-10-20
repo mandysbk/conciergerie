@@ -341,12 +341,8 @@ body.home #site-header:not(.is-scrolled) {
 /* État sur les pages intérieures ou après défilement */
 #site-header.is-scrolled,
 body.interior #site-header {
-  background: rgba(36, 62, 55, 0.96);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   color: var(--white);
-  padding-block: 14px;
-  box-shadow: var(--shadow-header);
+
 }
 
 .header-container {
