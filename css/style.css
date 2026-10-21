@@ -1287,6 +1287,23 @@ body.interior #site-header {
   margin: 0;
 }
 
+.guides-tagline {
+  position: relative;
+  margin: 0 0 5px;
+  max-width: 440px;
+  font-size: clamp(15px, 1.25vw, 17px);
+  transform: translateY(-5px);
+}
+
+.guides-tagline::before {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 1px;
+  margin-bottom: 10px;
+  background: #243e37;
+}
+
 .guides-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
