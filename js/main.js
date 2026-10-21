@@ -34,16 +34,22 @@
       // Conserver le style compact après avoir quitté le haut de page.
       header.classList.toggle('is-scrolled', scrollY > 30);
 
-      // Toujours rendre le header visible en haut de page.
-      if (scrollY <= revealAtTop) {
+      const localStrip = document.querySelector('.local-strip');
+      const localStripBottom = localStrip
+        ? localStrip.getBoundingClientRect().bottom + scrollY
+        : revealAtTop;
+
+      // Le header reste visible avant et pendant le bandeau local.
+      // Après le bandeau, il se masque à la descente et ne réapparaît
+      // qu'une fois que l'on remonte au-dessus de ce bandeau.
+      if (scrollY <= localStripBottom) {
         header.classList.remove('is-hidden');
       } else if (Math.abs(delta) >= directionThreshold) {
-        // Descente : masquer. Remontée : réafficher.
         if (delta > 0) {
           const drawer = document.getElementById('mobile-drawer');
           const menuOpen = drawer && drawer.classList.contains('is-open');
           if (!menuOpen) header.classList.add('is-hidden');
-        } else {
+        } else if (scrollY + header.offsetHeight < localStripBottom) {
           header.classList.remove('is-hidden');
         }
       }
@@ -223,6 +229,35 @@
   }
 
   /* ========================================================================
+     5. BOUTON DE RETOUR EN HAUT (À PARTIR DE L'ACCOMPAGNEMENT)
+     ======================================================================== */
+  function initBackToTop() {
+    const triggerSection = document.querySelector('#accompagnement.section.offers-section');
+    if (!triggerSection) return;
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'back-to-top';
+    button.setAttribute('aria-label', 'Remonter en haut de page');
+    button.setAttribute('title', 'Remonter en haut de page');
+    button.innerHTML = '<span aria-hidden="true">↑</span>';
+    document.body.appendChild(button);
+
+    button.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const updateVisibility = () => {
+      const triggerTop = triggerSection.getBoundingClientRect().top + window.scrollY;
+      button.classList.toggle('is-visible', window.scrollY + window.innerHeight * 0.35 >= triggerTop);
+    };
+
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    window.addEventListener('resize', updateVisibility);
+    updateVisibility();
+  }
+
+  /* ========================================================================
      5. DÉMARRAGE DES SCRIPTS
      ======================================================================== */
   function start() {
@@ -230,6 +265,7 @@
     initBurgerMenu();
     initScrollReveal();
     initContactForm();
+    initBackToTop();
   }
 
   if (document.readyState === 'loading') {
