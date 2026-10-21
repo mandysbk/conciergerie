@@ -30,7 +30,6 @@
     { id: 'accueil', label: 'Accueil', url: 'index.html' },
     { id: 'accompagnement', label: 'Nos offres', url: 'pages/accompagnement.html' },
     { id: 'services', label: 'Nos services', url: 'pages/services.html' },
-    { id: 'presentation', label: 'Mandy', url: 'pages/presentation.html' },
     { id: 'attentions-locales', label: 'Panier local', url: 'pages/attentions-locales.html' },
     { id: 'methode', label: 'Méthode', url: 'pages/methode.html' },
     { id: 'secteur', label: 'Secteur', url: 'pages/secteur.html' },
@@ -177,7 +176,6 @@
               <li><a href="${resolveUrl('index.html')}">Accueil</a></li>
               <li><a href="${resolveUrl('pages/accompagnement.html')}">Nos offres</a></li>
               <li><a href="${resolveUrl('pages/services.html')}">Nos services</a></li>
-              <li><a href="${resolveUrl('pages/presentation.html')}">Mandy</a></li>
               <li><a href="${resolveUrl('pages/attentions-locales.html')}">Panier d’arrivée</a></li>
             </ul>
           </div>
