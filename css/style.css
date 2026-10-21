@@ -1298,7 +1298,7 @@ body.interior #site-header {
 
 .guides-tagline-icon {
   display: block;
-  width: 72px;
+  width: 100px;
   height: auto;
   max-height: 8px;
   object-fit: contain;
