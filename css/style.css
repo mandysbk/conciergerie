@@ -791,6 +791,11 @@ body.interior #site-header {
   line-height: 1.65;
 }
 
+/* Aligne le début des listes des deux cartes d'offres malgré des introductions de longueurs différentes */
+.offer-body > p {
+  min-height: 5em;
+}
+
 .offer-list {
   list-style: none;
   padding: 0;
