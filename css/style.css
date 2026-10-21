@@ -367,6 +367,11 @@ body.interior #site-header {
   transition: transform var(--transition-fast), filter var(--transition-fast);
 }
 
+/* Logo du header en blanc pour garantir sa lisibilité sur le fond sombre */
+#site-header .brand img {
+  filter: brightness(0) invert(1) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+}
+
 .brand:hover img {
   transform: scale(1.03);
 }
