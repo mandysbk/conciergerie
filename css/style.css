@@ -1287,21 +1287,30 @@ body.interior #site-header {
   margin: 0;
 }
 
-.guides-tagline {
-  position: relative;
-  margin: 0 0 5px;
-  max-width: 440px;
-  font-size: clamp(15px, 1.25vw, 17px);
+.guides-tagline-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 390px;
+  margin: 0 0 5px 28px;
   transform: translateY(-5px);
 }
 
-.guides-tagline::before {
-  content: "";
+.guides-tagline-icon {
   display: block;
   width: 42px;
-  height: 1px;
-  margin-bottom: 10px;
-  background: #243e37;
+  height: auto;
+  max-height: 8px;
+  object-fit: contain;
+  object-position: left center;
+  margin: 0 0 8px;
+}
+
+.guides-tagline {
+  margin: 0;
+  max-width: 390px;
+  font-size: clamp(13px, 1.05vw, 15px);
+  line-height: 1.5;
 }
 
 .guides-grid {
