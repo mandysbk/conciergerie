@@ -23,38 +23,32 @@
     if (!header) return;
 
     let ticking = false;
-    let lastScrollY = window.scrollY || window.pageYOffset;
-    const directionThreshold = 6;
-    const revealAtTop = 40;
 
     function updateHeader() {
       const scrollY = Math.max(0, window.scrollY || window.pageYOffset);
-      const delta = scrollY - lastScrollY;
-
-      // Conserver le style compact après avoir quitté le haut de page.
       header.classList.toggle('is-scrolled', scrollY > 30);
 
       const localStrip = document.querySelector('.local-strip');
-      const localStripBottom = localStrip
-        ? localStrip.getBoundingClientRect().bottom + scrollY
-        : revealAtTop;
+      const drawer = document.getElementById('mobile-drawer');
+      const menuOpen = drawer && drawer.classList.contains('is-open');
 
-      // Le header reste visible avant et pendant le bandeau local.
-      // Après le bandeau, il se masque à la descente et ne réapparaît
-      // qu'une fois que l'on remonte au-dessus de ce bandeau.
-      if (scrollY <= localStripBottom) {
-        header.classList.remove('is-hidden');
-      } else if (Math.abs(delta) >= directionThreshold) {
-        if (delta > 0) {
-          const drawer = document.getElementById('mobile-drawer');
-          const menuOpen = drawer && drawer.classList.contains('is-open');
-          if (!menuOpen) header.classList.add('is-hidden');
-        } else if (scrollY + header.offsetHeight < localStripBottom) {
-          header.classList.remove('is-hidden');
-        }
+      // Le header se déplace progressivement vers le haut à mesure que
+      // le bandeau local sort de l'écran, puis reste entièrement masqué.
+      // En remontant, le mouvement s'inverse naturellement avec le scroll.
+      if (menuOpen) {
+        header.style.setProperty('--header-scroll-offset', '0px');
+        header.style.setProperty('--header-scroll-opacity', '1');
+      } else if (localStrip) {
+        const stripBottom = localStrip.getBoundingClientRect().bottom + scrollY;
+        const headerHeight = header.offsetHeight || 1;
+        const progress = Math.min(1, Math.max(0, (scrollY - stripBottom) / headerHeight));
+        header.style.setProperty('--header-scroll-offset', (progress * headerHeight) + 'px');
+        header.style.setProperty('--header-scroll-opacity', String(1 - progress));
+      } else {
+        header.style.setProperty('--header-scroll-offset', '0px');
+        header.style.setProperty('--header-scroll-opacity', '1');
       }
 
-      lastScrollY = scrollY;
       ticking = false;
     }
 
@@ -64,6 +58,8 @@
         ticking = true;
       }
     }, { passive: true });
+
+    window.addEventListener('resize', updateHeader);
 
     // Contrôle initial au chargement.
     updateHeader();
