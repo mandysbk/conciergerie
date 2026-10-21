@@ -793,7 +793,7 @@ body.interior #site-header {
 
 /* Aligne le début des listes des deux cartes d'offres malgré des introductions de longueurs différentes */
 .offer-body > p {
-  min-height: 5em;
+  min-height: 7em;
 }
 
 .offer-list {
