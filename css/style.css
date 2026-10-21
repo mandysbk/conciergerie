@@ -675,6 +675,14 @@ body.interior #site-header {
   font-size: 0.8em;
 }
 
+.local-strip span img {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  object-fit: contain;
+  vertical-align: -0.08em;
+}
+
 /* ==========================================================================
    8. COMPOSANTS : CARTES D'OFFRES (ACCOMPAGNEMENT)
    ========================================================================== */
