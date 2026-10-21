@@ -40,7 +40,7 @@
         header.style.setProperty('--header-scroll-opacity', '1');
       } else {
         const headerHeight = header.offsetHeight || 1;
-        const hideDistance = Math.max(1, headerHeight * 0.75);
+        const hideDistance = Math.max(1, headerHeight * 1.5);
         const progress = Math.min(1, Math.max(0, scrollY / hideDistance));
         header.style.setProperty('--header-scroll-offset', (progress * headerHeight) + 'px');
         header.style.setProperty('--header-scroll-opacity', String(1 - progress));
