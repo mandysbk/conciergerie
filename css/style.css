@@ -321,7 +321,7 @@ button, input, textarea, select {
   left: 0;
   right: 0;
   z-index: 1000;
-  transition: background var(--transition-normal), padding var(--transition-normal), box-shadow var(--transition-normal), transform 0.28s ease;
+  transition: background var(--transition-normal), padding var(--transition-normal), box-shadow var(--transition-normal), transform 0.8s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.65s ease;
   padding-block: 22px;
   will-change: transform;
 }
@@ -329,6 +329,7 @@ button, input, textarea, select {
 /* Masqué pendant la descente, réaffiché dès que l'utilisateur remonte */
 #site-header.is-hidden {
   transform: translateY(-110%);
+  opacity: 0;
   pointer-events: none;
 }
 
