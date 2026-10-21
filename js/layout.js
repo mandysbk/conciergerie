@@ -43,10 +43,10 @@
      Modifiez ici les coordonnées et textes du pied de page.
      ======================================================================== */
   const FOOTER_DATA = {
-    baseline: 'Conciergerie locale à Corme-Royal.<br>Gestion complète et prestations à la carte en Charente-Maritime.',
-    phone: '[TÉLÉPHONE À COMPLÉTER]',
-    phoneHref: 'tel:',
-    email: '[EMAIL À COMPLÉTER]',
+    baseline: 'Conciergerie locale à Corme-Royal.<br>Accompagnement global et prestations à la carte en Charente-Maritime.',
+    phone: '06.29.56.06.80',
+    phoneHref: 'tel:0629560680',
+    email: 'santonis.conciergerie@outlook.fr',
     commune: 'Corme-Royal (17600) — Rayonnement : Saintes, Royan, Rochefort',
     copyright: '© Santonis · Conciergerie en Charente-Maritime · Tous droits réservés.',
     legalNote: 'Maquette locale Santonis-v2. Informations légales à compléter avant publication.'
@@ -197,8 +197,8 @@
             <h4>Contact</h4>
             <p style="font-size: 14.5px; color: rgba(255,255,255,0.8); line-height: 1.6;">
               ${FOOTER_DATA.commune}<br><br>
-              E-mail : ${FOOTER_DATA.email}<br>
-              Tél : ${FOOTER_DATA.phone}
+              E-mail : <a href="mailto:${FOOTER_DATA.email}">${FOOTER_DATA.email}</a><br>
+              Tél : <a href="${FOOTER_DATA.phoneHref}">${FOOTER_DATA.phone}</a>
             </p>
           </div>
         </div>
