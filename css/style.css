@@ -1822,7 +1822,8 @@ body.interior #site-header {
 .guide-article-wrap {
   max-width: 960px;
   margin-inline: auto;
-  padding-block: 60px 100px;
+  /* Espace le lien de retour sous le header fixe sur toutes les pages de guide */
+  padding-block: 120px 100px;
 }
 
 .guide-back-link {
