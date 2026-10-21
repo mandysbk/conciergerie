@@ -2160,3 +2160,28 @@ body.interior #site-header {
     bottom: 16px;
   }
 }
+
+/* Couleurs dédiées aux boutons de la section Offres sur la page d'accueil */
+.offers-section .btn-offer-a-la-carte {
+  background: #243e37;
+  color: #f8f6ef;
+  border-color: #243e37;
+}
+
+.offers-section .btn-offer-a-la-carte:hover {
+  background: #33544a;
+  color: #f8f6ef;
+  border-color: #33544a;
+}
+
+.offers-section .btn-arrival-autonomous {
+  background: #f8f6ef;
+  color: #243e37;
+  border-color: #f8f6ef;
+}
+
+.offers-section .btn-arrival-autonomous:hover {
+  background: #e8e5dc;
+  color: #243e37;
+  border-color: #e8e5dc;
+}
