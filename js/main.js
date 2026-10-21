@@ -32,21 +32,18 @@
       const drawer = document.getElementById('mobile-drawer');
       const menuOpen = drawer && drawer.classList.contains('is-open');
 
-      // Le header se déplace progressivement vers le haut à mesure que
-      // le bandeau local sort de l'écran, puis reste entièrement masqué.
-      // En remontant, le mouvement s'inverse naturellement avec le scroll.
+      // Le header commence à disparaître dès le premier pixel de scroll
+      // et se masque entièrement sur une courte distance. En remontant,
+      // il réapparaît naturellement en suivant le scroll.
       if (menuOpen) {
         header.style.setProperty('--header-scroll-offset', '0px');
         header.style.setProperty('--header-scroll-opacity', '1');
-      } else if (localStrip) {
-        const stripBottom = localStrip.getBoundingClientRect().bottom + scrollY;
+      } else {
         const headerHeight = header.offsetHeight || 1;
-        const progress = Math.min(1, Math.max(0, (scrollY - stripBottom) / headerHeight));
+        const hideDistance = Math.max(1, headerHeight * 0.75);
+        const progress = Math.min(1, Math.max(0, scrollY / hideDistance));
         header.style.setProperty('--header-scroll-offset', (progress * headerHeight) + 'px');
         header.style.setProperty('--header-scroll-opacity', String(1 - progress));
-      } else {
-        header.style.setProperty('--header-scroll-offset', '0px');
-        header.style.setProperty('--header-scroll-opacity', '1');
       }
 
       ticking = false;
