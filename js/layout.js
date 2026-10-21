@@ -109,7 +109,7 @@
       return `<li><a class="nav-mobile-link${activeClass}" href="${href}"${ariaCurrent}>${item.label}</a></li>`;
     }).join('');
 
-    const logoSrc = `${rootPath}images/logo/logo-principal.png`;
+    const logoSrc = `${rootPath}images/logo/logo-princiapl.png`;
     const homeUrl = isInsidePages ? '../index.html' : './index.html';
 
     headerEl.innerHTML = `
@@ -156,7 +156,7 @@
     const footerEl = document.getElementById('site-footer');
     if (!footerEl) return;
 
-    const logoSrc = `${rootPath}images/logo/logo-principal.png`;
+    const logoSrc = `${rootPath}images/logo/logo-princiapl.png`;
     const homeUrl = isInsidePages ? '../index.html' : './index.html';
 
     footerEl.innerHTML = `
