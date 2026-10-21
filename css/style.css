@@ -1299,10 +1299,12 @@ body.interior #site-header {
 .guides-tagline-icon {
   display: block;
   width: 100px;
-  height: auto;
-  max-height: 8px;
-  object-fit: contain;
+  height: 8px;
+  min-height: 8px;
+  object-fit: fill;
   object-position: left center;
+  opacity: 1;
+  visibility: visible;
   margin: 0 0 8px;
 }
 
