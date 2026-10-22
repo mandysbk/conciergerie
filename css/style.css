@@ -322,7 +322,7 @@ button, input, textarea, select {
   right: 0;
   z-index: 1000;
   transition: background var(--transition-normal), padding var(--transition-normal), box-shadow var(--transition-normal);
-  padding-block: 22px;
+  padding-block: 8px;
   will-change: transform;
 }
 
@@ -566,7 +566,7 @@ body.interior #site-header {
   color: var(--white);
   overflow: hidden;
   background: var(--ink-dark);
-  padding-top: 130px;
+  padding-top: 210px;
   padding-bottom: 90px;
 }
 
