@@ -2221,7 +2221,7 @@ body.interior #site-header {
 }
 
 
-/* Ajustement du header : logo à gauche, format 180 × 180 px */
+/* Ajustement du header : logo à gauche, format 220 × 220 px */
 #site-header .header-container {
   justify-content: space-between;
 }
@@ -2232,15 +2232,15 @@ body.interior #site-header {
 }
 
 #site-header .header-container > .brand img {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   max-width: none;
   object-fit: contain;
 }
 
 @media (max-width: 640px) {
   #site-header .header-container > .brand img {
-    width: 180px;
-    height: 180px;
+    width: 220px;
+    height: 220px;
   }
 }

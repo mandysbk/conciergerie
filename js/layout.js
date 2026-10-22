@@ -115,7 +115,7 @@
       <div class="shell header-container">
         <!-- Logo principal Santonis -->
         <a class="brand" href="${homeUrl}" aria-label="Santonis — Retour à l'accueil">
-          <img src="${logoSrc}" alt="Santonis Conciergerie" width="200" height="200">
+          <img src="${logoSrc}" alt="Santonis Conciergerie" width="220" height="220">
         </a>
 
         <!-- Navigation Desktop -->
