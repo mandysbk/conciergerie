@@ -30,7 +30,7 @@
     { id: 'accueil', label: 'Accueil', url: 'index.html' },
     { id: 'accompagnement', label: 'Les offres', url: 'pages/accompagnement.html' },
     { id: 'services', label: 'Les services', url: 'pages/services.html' },
-    { id: 'attentions-locales', label: 'Attentions & Services aux voyageurs', url: 'pages/attentions-locales.html' },
+    { id: 'attentions-locales', label: 'Expérience voyageurs', url: 'pages/attentions-locales.html' },
     { id: 'methode', label: 'Méthode', url: 'pages/methode.html' },
     { id: 'secteur', label: 'Secteur', url: 'pages/secteur.html' },
     { id: 'guides', label: 'Guides voyageurs', url: 'pages/guides.html' },
@@ -176,7 +176,7 @@
               <li><a href="${resolveUrl('index.html')}">Accueil</a></li>
               <li><a href="${resolveUrl('pages/accompagnement.html')}">Les offres</a></li>
               <li><a href="${resolveUrl('pages/services.html')}">Les services</a></li>
-              <li><a href="${resolveUrl('pages/attentions-locales.html')}">Attentions & Services aux voyageurs</a></li>
+              <li><a href="${resolveUrl('pages/attentions-locales.html')}">Expérience voyageurs</a></li>
             </ul>
           </div>
 
