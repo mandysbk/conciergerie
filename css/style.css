@@ -2219,3 +2219,28 @@ body.interior #site-header {
   color: #243e37;
   border-color: #e8e5dc;
 }
+
+
+/* Ajustement du header : logo à gauche, format 180 × 180 px */
+#site-header .header-container {
+  justify-content: space-between;
+}
+
+#site-header .header-container > .brand {
+  margin-right: auto;
+  align-self: center;
+}
+
+#site-header .header-container > .brand img {
+  width: 180px;
+  height: 180px;
+  max-width: none;
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  #site-header .header-container > .brand img {
+    width: 180px;
+    height: 180px;
+  }
+}
