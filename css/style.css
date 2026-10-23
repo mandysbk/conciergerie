@@ -362,8 +362,9 @@ body.interior #site-header {
 }
 
 .brand img {
-  width: 140px;
-  height: auto;
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
   transition: transform var(--transition-fast), filter var(--transition-fast);
 }
 
