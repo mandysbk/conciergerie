@@ -341,8 +341,8 @@ body.home #site-header:not(.is-scrolled) {
 /* État sur les pages intérieures ou après défilement */
 #site-header.is-scrolled,
 body.interior #site-header {
+  background: #243e37;
   color: var(--white);
-
 }
 
 .header-container {
