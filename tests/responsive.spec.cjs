@@ -19,8 +19,10 @@ const routes = [
 ];
 
 test.describe('Contrôles mobiles', () => {
-  test.skip(async ({ page }) => (page.viewportSize()?.width || 1200) > 900,
-    'Ces contrôles ciblent les viewports mobiles et tablettes');
+  test.beforeEach(async ({ page }) => {
+    test.skip((page.viewportSize()?.width || 1200) > 900,
+      'Ces contrôles ciblent les viewports mobiles et tablettes');
+  });
 
   for (const route of routes) {
     test(`aucun débordement horizontal sur ${route}`, async ({ page }) => {
@@ -83,12 +85,12 @@ test.describe('Contrôles mobiles', () => {
   test('les images visibles de chaque page se chargent', async ({ page }) => {
     for (const route of routes) {
       await page.goto(route);
-      const broken = await page.locator('img').evaluateAll(images =>
-        images.filter(img => {
-          const rect = img.getBoundingClientRect();
-          return rect.width > 0 && (!img.complete || img.naturalWidth === 0);
-        }).map(img => img.getAttribute('src'))
-      );
+      const broken = await page.locator('img').evaluateAll(async images => {
+        images.forEach(img => { img.loading = 'eager'; });
+        await Promise.all(images.map(img => img.decode().catch(() => null)));
+        return images.filter(img => img.naturalWidth === 0)
+          .map(img => img.getAttribute('src'));
+      });
       expect(broken, `Images non chargées sur ${route}`).toEqual([]);
     }
   });
