@@ -23,7 +23,7 @@ module.exports = defineConfig({
     },
     {
       name: 'mobile-chromium',
-      use: { ...devices['iPhone 13'] }
+      use: { ...devices['Pixel 7'] }
     }
   ],
   webServer: {
